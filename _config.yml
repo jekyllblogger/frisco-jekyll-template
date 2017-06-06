@@ -37,6 +37,7 @@ exclude:
   - Gemfile.lock
   - README.md
   - LICENCE
+  - vendor
 
 collections:
   staff_members:
