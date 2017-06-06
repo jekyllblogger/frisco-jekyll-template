@@ -2,3 +2,16 @@ language: ruby
 rvm:
 - 2.1
 script: bundle exec jekyll build
+notifications:
+  slack:
+    template:
+      - "%{repository_slug} :: %{branch}"
+      - "%{result} (%{build_number} :: %{build_id})"
+      - "%{message}"
+      - "%{commit_message}"
+    rooms:
+      secure: jBEmcINlhH2+MjuhxHAacoSeqImeMh48Rpl2xy1MSUKTeeOobzHyL1mtupanq0KkMWE1hjATu6uY0AdWknNMXdI/rF8Y6To4HGmvyCC37xycKsqq3bJ7NRDM/bkxtG5Fdr20jXTBkIgyM/8+t1LYlcQ/FvpbsNnioYmhCg4aqAQ6avfvTa6xEMJI3xAQfx1irHt2DyCjEBbZ0HSGYEaTrUBuCDmAMikyDG71iusGO4BPsAo2j2ga3t41mWlswdZ5Tq/0niuOyledw3wHYswTT+w0y4B7lespqhhm7rircadG76gtwaqPBbKQwKZw3AoNnhXbcmjIL07DlJU7BG9d+boT8gAH50cWPOw/VsfyUgLEz9KNE4xNbbK1WCi/2RMRdXFe5S6Uy0/hMqaw2aVAvQ6cF4OkEtl8HhWLmqYUXdeQHHhq4+159vDn4Vn4ydWrT2kb0utw5SY1fSV6uxuaDFnD0ckQMtTzVrmWgMa+apB7Y/7SJEJKUlMbjOJSmjdeqYDpL8OYZRrCJYPJCo+xXYnlsemDafzh3MEcZOKh7a7BQMuUBkqUpjpynhAU9W8Q8a8KNH9o6BZ/lYQnHWMy3ooZLxoPZkP/JaT4QN96vqoET/Q0qKd6xrU+OS8gTUShkJja29oUkFYAKSxPStEbP3gVuBhfameJmaHTmRT9qZ0=
+    on_start: never
+    on_failure: always
+    on_success: change
+    on_pull_requests: false
